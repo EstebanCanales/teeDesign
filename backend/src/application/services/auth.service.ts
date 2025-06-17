@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { UserRepository } from "../../domain/repositoires/user.repository";
+import { UserRepository } from "../../domain/repositories/user.repository";
 import type { IUser } from "../../domain/schemas/user.schema";
 
 export interface AuthTokenPayload {

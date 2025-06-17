@@ -1,4 +1,4 @@
-import type { UserRepository } from "../../../../domain/repositoires/user.respository";
+import type { UserRepository } from "../../../../domain/repositories/user.repository";
 
 export class DeleteUser {
   constructor(private userRepository: UserRepository) {}

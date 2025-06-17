@@ -1,9 +1,9 @@
-import type { TeeDesignRepository } from "../../../../domain/repositoires/teeDesign.respository";
-import type { TeeDesign } from "../../../../domain/interfaces/IteeDesign.interface";
+import type { TeeDesignRepository } from "../../../../domain/repositories/teeDesign.repository";
 
-export class UpdateTeeDesign {
+export class DateleTeeDesignUseCase {
   constructor(private teeDesignRepository: TeeDesignRepository) {}
-  async execute(teeDesign: TeeDesign): Promise<TeeDesign> {
-    return this.teeDesignRepository.updateTeeDesign(teeDesign);
+
+  async execute(id: string): Promise<void> {
+    return this.teeDesignRepository.delete(id);
   }
 }

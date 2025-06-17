@@ -1,5 +1,5 @@
 import type { User } from "../../../../domain/interfaces/Iuser.interface";
-import type { UserRepository } from "../../../../domain/repositoires/user.respository";
+import type { UserRepository } from "../../../../domain/repositories/user.repository";
 
 export class GetUser {
   constructor(private userRepository: UserRepository) {}

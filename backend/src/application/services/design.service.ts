@@ -1,4 +1,4 @@
-import { DesignRepository } from "../../domain/repositoires/design.repository";
+import { DesignRepository } from "../../domain/repositories/design.repository";
 import type { IDesign } from "../../domain/schemas/design.schema";
 
 export class DesignService {
