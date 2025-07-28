@@ -29,7 +29,8 @@ export class DesignRepository {
   }
 
   async findAll(isPublic: boolean = true): Promise<IDesign[]> {
-    return await DiferentesModel.find({ isPublic }).populate("user", "name");
+    // TEMP: Devolvemos todos los diseños para depuración, ignorando el estado 'isPublic'
+    return await DiferentesModel.find({}).populate("user", "name");
   }
 
   async searchByName(query: string): Promise<IDesign[]> {

@@ -24,6 +24,7 @@ export class AuthService {
     email: string;
     password: string;
   }): Promise<{ user: IUser; token: string }> {
+    console.log('[AuthService] Registrando usuario', userData.email);
     // Verificar si el usuario ya existe
     const existingUser = await this.userRepository.findByEmail(userData.email);
     if (existingUser) {
@@ -32,6 +33,8 @@ export class AuthService {
 
     // Crear el usuario
     const user = await this.userRepository.create(userData);
+    // @ts-ignore
+    console.log('[AuthService] Usuario creado con ID', (user as any)._id.toString());
 
     // Generar token
     const token = this.generateToken(user);
@@ -45,6 +48,7 @@ export class AuthService {
 
   async login(email: string, password: string): Promise<{ user: IUser; token: string }> {
     // Buscar usuario por email
+    console.log('[AuthService] Intentando login', email);
     const user = await this.userRepository.findByEmail(email);
     if (!user) {
       throw new Error("Credenciales inválidas");
@@ -52,6 +56,7 @@ export class AuthService {
 
     // Verificar contraseña
     const isPasswordValid = await user.comparePassword(password);
+    console.log('[AuthService] Password válida?', isPasswordValid);
     if (!isPasswordValid) {
       throw new Error("Credenciales inválidas");
     }

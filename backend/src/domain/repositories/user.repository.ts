@@ -3,11 +3,20 @@ import type { IUser } from "../schemas/user.schema";
 
 export class UserRepository {
   async create(userData: Partial<IUser>): Promise<IUser> {
+    console.log("[UserRepository] Creando usuario", userData);
     const user = new UserModel(userData);
-    return await user.save();
+    try {
+      const saved = await user.save();
+      console.log("[UserRepository] Usuario guardado", saved.toObject());
+      return saved;
+    } catch (error) {
+      console.error("[UserRepository] Error al guardar usuario", error);
+      throw error;
+    }
   }
 
   async findByEmail(email: string): Promise<IUser | null> {
+    console.log("[UserRepository] Buscando usuario por email", email);
     return await UserModel.findOne({ email }).select("+password");
   }
 

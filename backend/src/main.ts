@@ -6,7 +6,7 @@ async function main() {
   try {
     // Configuración del servidor
     const config: ServerConfig = {
-      port: Number(process.env.PORT) || 3000,
+      port: Number(process.env.PORT) || 4000,
       environment: process.env.NODE_ENV || "development",
     };
 

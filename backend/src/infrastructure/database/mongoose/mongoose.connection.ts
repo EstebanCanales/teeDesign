@@ -11,7 +11,7 @@ export class MongoDBConnection implements IMongoDatabaseConnection {
   async connect(): Promise<void> {
     try {
       await mongoose.connect(this.uri);
-      console.log("🔌 Conexión a MongoDB establecida con éxito");
+      console.log(`🔌 Conexión a MongoDB establecida con éxito → ${this.uri}`);
     } catch (error) {
       console.error("❌ Error al conectar a MongoDB:", error);
       throw error;
